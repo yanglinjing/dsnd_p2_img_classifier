@@ -27,16 +27,16 @@ The project is broken down into multiple steps:
 ```
 import numpy as np
 import time
+import arg_parse
+import json
 import matplotlib.pyplot as plt
 from PIL import Image
 
 import torch
 from torch import nn, optim
 import torch.nn.functional as F
-
 from torchvision import datasets, transforms, models
 
-import json
 ```
 
 #### Parameters
@@ -44,7 +44,7 @@ import json
 batch_size = 32
 learning_rate = 0.001
 drop_out = 0.5
-epochs = 5
+epochs = 3
 ```
 #### Transfer models
 I loaded a pretrained model `torchvision.models.vgg16` to get the image features, then built and trained a new feed-forward classifier using those features.
