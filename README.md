@@ -9,7 +9,7 @@ In this project, I trained an image classifier to recognize different species of
 ### Dataset
 [The dataset](http://www.robots.ox.ac.uk/~vgg/data/flowers/102/index.html) includes **102** flower categories, you can see a few examples below.
 
-![sample_img](https://github.com/yanglinjing/dsnd_p2_img_classifier/blob/master/udacity-git-course/dsnd_p2_img_classifier/assets/Flowers.png)
+![sample_img](https://github.com/yanglinjing/dsnd_p2_img_classifier/blob/master/assets/Flowers.png)
 
 It contains 3 folders:
 - train: 6552 images,
@@ -54,4 +54,4 @@ I wrote an application that consists of Python scripts (in the 'py' folder) whic
 
 It helps classify flower pictures, and the outcome is as follows:
 
-![output](https://github.com/yanglinjing/dsnd_p2_img_classifier/blob/master/udacity-git-course/dsnd_p2_img_classifier/assets/output.png)
+![output](https://github.com/yanglinjing/dsnd_p2_img_classifier/blob/master/assets/output.png)
