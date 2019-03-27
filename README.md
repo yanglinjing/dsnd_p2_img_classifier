@@ -193,19 +193,19 @@ load_model().classifier
 ```
 OUTPUT:
 
-  (0): Linear(in_features=25088, out_features=4096, bias=True)
+> (0): Linear(in_features=25088, out_features=4096, bias=True)
 
-  (1): ReLU(inplace)
+> (1): ReLU(inplace)
 
-  (2): Dropout(p=0.5)
+> (2): Dropout(p=0.5)
 
-  (3): Linear(in_features=4096, out_features=4096, bias=True)
+> (3): Linear(in_features=4096, out_features=4096, bias=True)
 
-  (4): ReLU(inplace)
+> (4): ReLU(inplace)
 
-  (5): Dropout(p=0.5)
+> (5): Dropout(p=0.5)
 
-  (6): Linear(in_features=4096, out_features=1000, bias=True)
+> (6): Linear(in_features=4096, out_features=1000, bias=True)
 
 
 - We need to keep the input size same as the original one. Since we have 102 flower categories, our output size should be 102.
@@ -374,14 +374,14 @@ def train(dataloaders,
 
 OUTPUT:
 
-Epoch 3/3 | Train loss: 1.259 | Valid loss: 0.537 | Valid accuracy: 0.849
+> Epoch 3/3 | Train loss: 1.259 | Valid loss: 0.537 | Valid accuracy: 0.849
 
-Training complete in 48m 9s
+> Training complete in 48m 9s
 
 
 ## Step 3. Testing
 
-- Run the test images through the trained network and measure the accuracy, in the same way as how we did in the validation step.
+Run the test images through the trained network and measure the accuracy, in the same way as how we did in the validation step.
 
 ```
 test_loss, accuracy = validation('test',
@@ -397,7 +397,7 @@ Test loss: 0.614   |   Test accuracy: 0.832
 
 ## Step 4. Save the checkpoint
 
-- Save the model (both model architecture and parameters) to a `.pth` file for making predictions later.
+Save the model (both model architecture and parameters) to a `.pth` file for making predictions later.
 ```
 model.class_to_idx = image_datasets['train'].class_to_idx
 
