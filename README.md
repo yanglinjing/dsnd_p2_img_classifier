@@ -96,7 +96,7 @@ I loaded a pretrained model `torchvision.models.vgg16`  to get the image feature
 
 ## Step 1. Load & Transform Data
 
-The **pre-trained **networks were trained on the ImageNet dataset where each color channel was ***normalized*** separately. For all three sets, the means and standad deviations of the images are normalized to what the network expects. These values will shift each color channel to be centered at 0 and range ***from -1 to 1***.
+The **pre-trained** networks were trained on the ImageNet dataset where each color channel was ***normalized*** separately. For all three sets, the means and standard deviations of the images are normalized to what the network expects. These values will shift each color channel to be centered at 0 and range ***from -1 to 1***.
 
 ```
 pretrained_mean = [0.485, 0.456, 0.406]
@@ -105,7 +105,7 @@ pretrained_std = [0.229, 0.224, 0.225]
 ### Step1.1 Transform Data
 The dataset has already been split into three parts, **training**, **validation**, and **testing**.
 
-- For the **training**, I applied transformations such as ***random scaling, cropping, and flipping***, which helped the network generalise leading to better performance. I also need to  ***resized*** the input data is to** 224x224 **pixels as required by the pre-trained networks.
+- For the **training**, I applied transformations such as ***random scaling, cropping, and flipping***, which helped the network generalise leading to better performance. I also need to  ***resized*** the input data is to **224x224** pixels as required by the pre-trained networks.
 
 - For the **validation** and **testing** sets, I just  ***resized*** then ***cropped*** the images,  as they were used to measure the model's performance.
 
@@ -174,7 +174,9 @@ The steps are as follows:
 
 ```
 def load_model(arch='vgg16'):
+
     # load the model trained on ImageNet: VGG or alexnet
+
     if arch=='vgg16':
         model = models.vgg16(pretrained=True)
     elif arch=='alexnet':
@@ -185,7 +187,7 @@ def load_model(arch='vgg16'):
     return model
 ```
 
-Now we can check the original classifiers of the mode l`vgg16`:
+- Now we can check the original classifiers of the model `vgg16`:
 ```
 load_model().classifier
 ```
@@ -206,7 +208,7 @@ OUTPUT:
   (6): Linear(in_features=4096, out_features=1000, bias=True)
 
 
-We need to keep the input size same as the original one. Since we have 102 flower categories, our output size should be 102.
+- We need to keep the input size same as the original one. Since we have 102 flower categories, our output size should be 102.
 
 ```
 arch = 'vgg16'
@@ -217,7 +219,7 @@ output_size = 102
 
 
 ### Step 2.2.  Define a New Model
-Define a new, untrained feed-forward network as a classifier, using ReLU activations and dropout
+- Define a new, untrained feed-forward network as a classifier, using ReLU activations and dropout
 
 ```
 def build_model(arch,
@@ -379,7 +381,7 @@ Training complete in 48m 9s
 
 ## Step 3. Testing
 
-Run the test images through the trained network and measure the accuracy, in the same way as how we did in the validation step.
+- Run the test images through the trained network and measure the accuracy, in the same way as how we did in the validation step.
 
 ```
 test_loss, accuracy = validation('test',
@@ -395,7 +397,7 @@ Test loss: 0.614   |   Test accuracy: 0.832
 
 ## Step 4. Save the checkpoint
 
-Save the model (both model architecture and parameters) to a `.pth` file for making predictions later.
+- Save the model (both model architecture and parameters) to a `.pth` file for making predictions later.
 ```
 model.class_to_idx = image_datasets['train'].class_to_idx
 
@@ -424,7 +426,7 @@ In this step, a `predict` function has been written - when a flower image has be
 
 ### Step 5.1. Image Preprocessing
 
-In this step,  a function was written to  **process the images** in the **same** manner used for **training**.
+Write a function to  **process the images** in the **same** manner used for **training**.
 
 1. Use [PIL](https://pillow.readthedocs.io/en/latest/reference/Image.html) to load the image
 
@@ -474,7 +476,7 @@ def process_image(image_path, mean = pretrained_mean, std = pretrained_std):
 
 ## Class Prediction
 
-write a function for making predictions with your model, which takes a path to an image and a model checkpoint, then return the probabilities and classes.
+Write a function for making predictions, which takes a path to an image and a model checkpoint, then return the probabilities and classes.
 
 
 - Get the top $K$ largest values in a tensor use [`x.topk(k)`](http://pytorch.org/docs/master/torch.html#torch.topk), which returns both the highest `k` probabilities and the indices of those probabilities corresponding to the classes.
