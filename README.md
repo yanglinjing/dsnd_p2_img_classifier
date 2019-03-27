@@ -392,7 +392,7 @@ test_loss, accuracy = validation('test',
 
 ```
 OUTPUT:
-Test loss: 0.614   |   Test accuracy: 0.832
+> Test loss: 0.614   |   Test accuracy: 0.832
 
 
 ## Step 4. Save the checkpoint
@@ -428,7 +428,7 @@ In this step, a `predict` function has been written - when a flower image has be
 
 Write a function to  **process the images** in the **same** manner used for **training**.
 
-1. Use [PIL](https://pillow.readthedocs.io/en/latest/reference/Image.html) to load the image
+1. Use [`PIL`](https://pillow.readthedocs.io/en/latest/reference/Image.html) to load the image
 
 2. [`Resize`](http://pillow.readthedocs.io/en/3.1.x/reference/Image.html#PIL.Image.Image.thumbnail) the images where the shortest side is 256 pixels, keeping the aspect ratio; then crop out the center 224x224 portion of the image.
 
